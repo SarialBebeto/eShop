@@ -65,6 +65,8 @@ get-WinGetConfiguration -file .\.configurations\vscode.dsc.yaml | Invoke-WinGetC
 > [!WARNING]
 > Remember to ensure that Docker is started
 
+
+
 * (Windows only) Run the application from Visual Studio:
  - Open the `eShop.Web.slnf` file in Visual Studio
  - Ensure that `eShop.AppHost.csproj` is your startup project
