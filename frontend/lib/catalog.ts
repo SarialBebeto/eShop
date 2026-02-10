@@ -8,6 +8,7 @@ export type Product = {
 };
 
 export async function getProducts(): Promise<Product[]> {
-    const res = await api.get("/catalog/items");
-    return res.data;
+  // Use the axios instance baseURL; pass a relative path so baseURL is applied.
+  const res = await api.get('/catalog/items');
+  return res.data;
 }
