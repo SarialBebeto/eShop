@@ -26,7 +26,7 @@ jobs:
         run: dotnet build src/eShop.AppHost/eShop.AppHost.csproj --configuration Release --no-restore
 
       - name: Run tests
-        run: dotnet test --nobuild --verbosity normal
+        run: dotnet workload restore  && dotnet test --nobuild --verbosity normal 
 
       - name: Build Docker image
         run: docker build -t eshop-app .
@@ -37,5 +37,4 @@ jobs:
           sleep 10
           curl -f http://localhost:8080/ || exit 1
           docker stop eshop-test
-    
     
