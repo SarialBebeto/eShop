@@ -2,9 +2,11 @@
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 
+# Copy central package management file
+COPY Directory.Packages.props ./
+
 # Copy solution and project files first
-COPY *.sln ./
-COPY src/eShop.AppHost/*.csproj ./src/eShop.AppHost/
+COPY src/eShop.AppHost/eShop.AppHost.csproj ./src/eShop.AppHost/
 
 # Restore dependencies
 RUN dotnet restore ./src/eShop.AppHost/eShop.AppHost.csproj
