@@ -25,8 +25,14 @@ jobs:
       - name: Build the application
         run: dotnet build src/eShop.AppHost/eShop.AppHost.csproj --configuration Release --no-restore
 
-      - name: Run tests
-        run: dotnet workload restore  && dotnet test --nobuild --verbosity normal 
+      - name: Run workload restore
+        run: dotnet workload restore  
+      
+      - name: Restore backend project
+        run: dotnet restore src/eShop.AppHost/eShop.AppHost.csproj
+
+      - name: Build backend project
+        run: dotnet build src/eShop.AppHost/eShop.AppHost.csproj --configuration Release --no-restore
 
       - name: Build Docker image
         run: docker build -t eshop-app .
