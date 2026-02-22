@@ -4,7 +4,7 @@ WORKDIR /src
 
 # Copy solution and project files first
 COPY *.sln ./
-COPY src/eshop.AppHost/*.csproj ./src/eshop.AppHost/
+COPY src/eShop.AppHost/*.csproj ./src/eShop.AppHost/
 
 # Restore dependencies
 RUN dotnet restore
@@ -13,7 +13,7 @@ RUN dotnet restore
 COPY . .
 
 # Publish the AppHost project
-RUN dotnet publish src/eshop.AppHost/eshop.AppHost.csproj \
+RUN dotnet publish src/eShop.AppHost/eShop.AppHost.csproj \
     -c Release \
     -o /app/publish \
     /p:UseAppHost=false
@@ -34,4 +34,4 @@ ENV ASPNETCORE_URLS=http://+:80
 ENV ASPNETCORE_ENVIRONMENT=Production
 
 # Start the application
-ENTRYPOINT ["dotnet","eshop.AppHost.dll"]
+ENTRYPOINT ["dotnet","eShop.AppHost.dll"]
