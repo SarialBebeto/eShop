@@ -7,7 +7,7 @@ COPY *.sln ./
 COPY src/eShop.AppHost/*.csproj ./src/eShop.AppHost/
 
 # Restore dependencies
-RUN dotnet restore
+RUN dotnet restore ./src/eShop.AppHost/eShop.AppHost.csproj
 
 # Copy everything
 COPY . .
